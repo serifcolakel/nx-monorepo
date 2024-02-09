@@ -1,0 +1,8 @@
+{
+  "name": "mehrzweck",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/mehrzweck/src",
+  "projectType": "application",
+  "targets": {},
+  "tags": []
+}
