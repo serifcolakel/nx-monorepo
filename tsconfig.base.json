@@ -16,11 +16,7 @@
     "jsx": "react",
     "downlevelIteration": true,
     "target": "es6",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "baseUrl": ".",
     "paths": {
       "genel-muhasebe/Module": ["apps/genel-muhasebe/src/remote-entry.ts"]

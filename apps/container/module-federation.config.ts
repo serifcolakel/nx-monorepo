@@ -14,12 +14,10 @@ const config: ModuleFederationConfig = {
    * declare module 'my-external-remote';
    *
    */
-  remotes: [
-    ['genel-muhasebe', 'http://localhost:3005/remoteEntry.js']
-  ],
+  remotes: [],
   exposes: {
     './App': 'apps/container/src/app/app',
   },
-  };
+};
 
 export default config;

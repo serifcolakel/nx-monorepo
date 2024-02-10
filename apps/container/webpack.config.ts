@@ -1,6 +1,6 @@
 import { withReact } from '@nx/react';
 import { withModuleFederation } from '@nx/react/module-federation';
-import { composePlugins, ModuleFederationConfig,withNx } from '@nx/webpack';
+import { composePlugins, ModuleFederationConfig, withNx } from '@nx/webpack';
 
 import baseConfig from './module-federation.config';
 
@@ -14,6 +14,6 @@ export default composePlugins(
   withReact(),
   withModuleFederation(config),
   (oldConfig) => ({
-      ...oldConfig,
-    })
+    ...oldConfig,
+  }),
 );

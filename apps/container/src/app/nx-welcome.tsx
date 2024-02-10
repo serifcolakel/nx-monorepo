@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint-disable react/no-danger */
 /*
  * * * * * * * * * * * * * * * * * * * * * * * * * * * *
@@ -7,7 +8,6 @@
  * * * * * * * * * * * * * * * * * * * * * * * * * * * *
  */
 export function NxWelcome({ title }: { title: string }) {
-
   return (
     <>
       <style
