@@ -1,8 +1,7 @@
 import * as React from 'react';
+import { Link, Route, Routes } from 'react-router-dom';
 
 import NxWelcome from './nx-welcome';
-
-import { Link, Route, Routes } from 'react-router-dom';
 
 export function App() {
   return (
@@ -13,7 +12,7 @@ export function App() {
         </li>
       </ul>
       <Routes>
-        <Route path="/" element={<NxWelcome title="container" />} />
+        <Route element={<NxWelcome title="container" />} path="/" />
       </Routes>
     </React.Suspense>
   );

@@ -1,6 +1,6 @@
-import { render } from '@testing-library/react';
-
+/* eslint-disable @typescript-eslint/no-unsafe-call */
 import { BrowserRouter } from 'react-router-dom';
+import { render } from '@testing-library/react';
 
 import App from './app';
 
@@ -11,6 +11,7 @@ describe('App', () => {
         <App />
       </BrowserRouter>
     );
+
     expect(baseElement).toBeTruthy();
   });
 
@@ -20,6 +21,7 @@ describe('App', () => {
         <App />
       </BrowserRouter>
     );
+
     expect(getByText(/Welcome container/gi)).toBeTruthy();
   });
 });

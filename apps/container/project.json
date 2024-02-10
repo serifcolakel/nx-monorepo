@@ -87,6 +87,14 @@
           "buildTarget": "container:build:production"
         }
       }
+    },
+    "typecheck": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": ["tsc -p tsconfig.app.json --noEmit"],
+        "cwd": "apps/container",
+        "forwardAllArgs": false
+      }
     }
   },
   "tags": []
