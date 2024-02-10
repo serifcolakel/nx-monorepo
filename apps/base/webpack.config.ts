@@ -2,11 +2,11 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import { withReact } from '@nx/react';
 import { withModuleFederation } from '@nx/react/module-federation';
-import { composePlugins, ModuleFederationConfig, withNx } from '@nx/webpack';
+import { composePlugins, withNx } from '@nx/webpack';
 
 import baseConfig from './module-federation.config';
 
-const config: ModuleFederationConfig = {
+const config = {
   ...baseConfig,
 };
 

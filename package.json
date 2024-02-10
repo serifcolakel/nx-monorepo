@@ -3,6 +3,9 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
+    "build:base": "nx run base:build --configuration=production && cd dist/apps/base && PORT=3003 npx serve",
+    "build:container": "nx run container:build --configuration=production && cd dist/apps/container && PORT=3002 npx serve",
+    "start:container": "nx run container:serve --configuration=development",
     "prepare": "husky install",
     "lint": "eslint apps/* --ext ts,tsx --report-unused-disable-directives --max-warnings 0"
   },

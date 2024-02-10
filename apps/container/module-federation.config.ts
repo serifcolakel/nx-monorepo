@@ -14,7 +14,7 @@ const config: ModuleFederationConfig = {
    * declare module 'my-external-remote';
    *
    */
-  remotes: [],
+  remotes: [ 'base' ],
   exposes: {
     './App': 'apps/container/src/app/app',
   },

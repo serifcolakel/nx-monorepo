@@ -1,7 +1,7 @@
 {
-  "name": "container",
+  "name": "base",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "apps/container/src",
+  "sourceRoot": "apps/base/src",
   "projectType": "application",
   "targets": {
     "build": {
@@ -10,19 +10,17 @@
       "defaultConfiguration": "production",
       "options": {
         "compiler": "babel",
-        "outputPath": "dist/apps/container",
-        "index": "apps/container/src/index.html",
+        "outputPath": "dist/apps/base",
+        "index": "apps/base/src/index.html",
         "baseHref": "/",
-        "main": "apps/container/src/main.ts",
-        "tsConfig": "apps/container/tsconfig.app.json",
-        "assets": [
-          "apps/container/src/favicon.ico",
-          "apps/container/src/assets"
-        ],
-        "styles": ["apps/container/src/styles.css"],
+        "main": "apps/base/src/main.ts",
+        "tsConfig": "apps/base/tsconfig.app.json",
+        "assets": ["apps/base/src/favicon.ico", "apps/base/src/assets"],
+        "styles": ["apps/base/src/styles.css"],
         "scripts": [],
-        "webpackConfig": "apps/container/webpack.config.ts"
+        "webpackConfig": "apps/base/webpack.config.ts"
       },
+
       "configurations": {
         "development": {
           "extractLicenses": false,
@@ -33,41 +31,37 @@
         "production": {
           "fileReplacements": [
             {
-              "replace": "apps/container/src/environments/environment.ts",
-              "with": "apps/container/src/environments/environment.prod.ts"
+              "replace": "apps/base/src/environments/environment.ts",
+              "with": "apps/base/src/environments/environment.prod.ts"
             }
           ],
+          "crossOrigin": "anonymous",
           "optimization": true,
           "outputHashing": "all",
           "sourceMap": false,
           "namedChunks": false,
           "extractLicenses": true,
           "vendorChunk": false,
-          "webpackConfig": "apps/container/webpack.config.prod.ts"
+          "webpackConfig": "apps/base/webpack.config.prod.ts"
         }
       }
     },
     "serve": {
-      "executor": "@nx/react:module-federation-dev-server",
+      "executor": "@nx/webpack:dev-server",
       "defaultConfiguration": "development",
       "options": {
-        "buildTarget": "container:build",
+        "buildTarget": "base:build",
         "hmr": true,
-        "liveReload": true,
-        "watch": true,
-        "devRemotes": ["base"],
-        "port": 3002
+        "allowedHosts": "all",
+        "port": 3003
       },
       "configurations": {
         "development": {
-          "buildTarget": "container:build:development",
-          "hmr": true,
-          "liveReload": true,
-          "watch": true,
-          "port": 3002
+          "buildTarget": "base:build:development"
         },
         "production": {
-          "buildTarget": "container:build:production",
+          "allowedHosts": "all",
+          "buildTarget": "base:build:production",
           "hmr": false
         }
       }
@@ -76,16 +70,16 @@
       "executor": "@nx/web:file-server",
       "defaultConfiguration": "production",
       "options": {
-        "buildTarget": "container:build",
+        "buildTarget": "base:build",
         "watch": false,
-        "port": 3002
+        "port": 3003
       },
       "configurations": {
         "development": {
-          "buildTarget": "container:build:development"
+          "buildTarget": "base:build:development"
         },
         "production": {
-          "buildTarget": "container:build:production"
+          "buildTarget": "base:build:production"
         }
       }
     }

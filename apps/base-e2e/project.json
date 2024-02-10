@@ -1,0 +1,9 @@
+{
+  "name": "base-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/base-e2e/src",
+  "targets": {},
+  "implicitDependencies": ["base"],
+  "tags": []
+}
