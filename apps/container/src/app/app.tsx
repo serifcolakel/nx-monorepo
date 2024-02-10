@@ -15,11 +15,13 @@ export function App() {
       <button onClick={() => setTest((oldTest) => oldTest + 1)}>Click me {test}</button>
       <ul>
         <li>
-          <Link to="/">124124</Link>
+          <Link to="/">Home</Link>
+          <Link to="/contact">Contact</Link>
         </li>
       </ul>
       <Routes>
-        <Route element={<NxWelcome title="container" />} path="/" />
+        <Route element={<NxWelcome title="main" />} path="/" />
+        <Route element={<NxWelcome title="contact" />} path="/contact" />
       </Routes>
     </React.Suspense>
   );
