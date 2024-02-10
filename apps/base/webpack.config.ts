@@ -21,13 +21,6 @@ export default composePlugins(
       // @ts-ignore
       ...oldConfig.devServer,
       static: oldConfig?.output?.path,
-      liveReload: true,
-      allowedHosts: 'all',
-      headers: {
-        'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Headers':
-          'Origin, X-Requested-With, Content-Type, Accept',
-      },
     },
   }),
 );

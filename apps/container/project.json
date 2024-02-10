@@ -55,6 +55,7 @@
         "hmr": true,
         "liveReload": true,
         "watch": true,
+        "open": true,
         "devRemotes": ["base"],
         "port": 3002
       },
