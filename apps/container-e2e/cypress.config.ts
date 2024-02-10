@@ -7,10 +7,10 @@ export default defineConfig({
     ...nxE2EPreset(__filename, {
       cypressDir: 'src',
       webServerCommands: {
-        default: 'nx run mehrzweck:serve',
-        production: 'nx run mehrzweck:preview',
+        default: 'nx run container:serve',
+        production: 'nx run container:preview',
       },
-      ciWebServerCommand: 'nx run mehrzweck:serve-static',
+      ciWebServerCommand: 'nx run container:serve-static',
     }),
     baseUrl: 'http://localhost:4200',
   },

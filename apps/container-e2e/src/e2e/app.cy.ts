@@ -1,6 +1,6 @@
 import { getGreeting } from '../support/app.po';
 
-describe('mehrzweck-e2e', () => {
+describe('container-e2e', () => {
   beforeEach(() => cy.visit('/'));
 
   it('should display welcome message', () => {

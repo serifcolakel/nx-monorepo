@@ -1,8 +1,9 @@
 {
-  "name": "mehrzweck",
+  "name": "container-e2e",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "apps/mehrzweck/src",
   "projectType": "application",
+  "sourceRoot": "apps/container-e2e/src",
   "targets": {},
+  "implicitDependencies": ["container"],
   "tags": []
 }
