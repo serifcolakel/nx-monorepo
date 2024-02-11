@@ -34,7 +34,7 @@ export default function Test() {
   }
 
   return (
-    <div>
+    <div className="px-[400px] bg-red-500 lg:bg-blue-500 md:bg-green-500 sm:bg-yellow-500">
       {isFetching ? <h1>Loading...</h1>
         : (
           <div>

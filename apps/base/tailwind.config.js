@@ -7,6 +7,7 @@ const baseConfig = require('../../tailwind.config');
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
+    ...baseConfig?.content || [],
     join(
       __dirname,
       '{src,pages,components,app}/**/*!(*.stories|*.spec).{ts,tsx,html}',
