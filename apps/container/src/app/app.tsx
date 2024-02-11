@@ -1,5 +1,7 @@
 import * as React from 'react';
 import { Link, Route, Routes } from 'react-router-dom';
+import { Data, useCounterActions } from '@webpack-nx-mehrzweck/data';
+import { useGetPostQuery } from 'packages/data/src/features/queries/post';
 
 import NxWelcome from './nx-welcome';
 
@@ -8,11 +10,24 @@ const Test = React.lazy(() => import('base/Test'));
 export function App() {
   const [ test, setTest ] = React.useState(0);
 
+  const {
+    handleDecrement, handleIncrement, handleIncrementByAmount, counterState,
+  } = useCounterActions();
+
+  const { data } = useGetPostQuery(5, {
+    refetchOnMountOrArgChange: true,
+  });
+
   return (
     <React.Suspense fallback={null}>
       <Test />
-      <h1>Welcome to container!</h1>
+      <Data text="Hello" />
+      <h1>Post: {data?.title}</h1>
+      <h1>Welcome to container! {counterState.value}</h1>
       <button onClick={() => setTest((oldTest) => oldTest + 1)}>Click me {test}</button>
+      <button onClick={handleIncrement}>Increment</button>
+      <button onClick={handleDecrement}>Decrement</button>
+      <button onClick={() => handleIncrementByAmount(5)}>Increment by 5</button>
       <ul>
         <li>
           <Link to="/">Home</Link>

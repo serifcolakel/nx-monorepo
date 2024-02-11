@@ -19,6 +19,7 @@
     "lib": ["dom", "dom.iterable", "esnext"],
     "baseUrl": ".",
     "paths": {
+      "@webpack-nx-mehrzweck/data": ["packages/data/src/index.ts"],
       "base/Module": ["apps/base/src/remote-entry.ts"],
       "genel-muhasebe/Module": ["apps/genel-muhasebe/src/remote-entry.ts"]
     }
