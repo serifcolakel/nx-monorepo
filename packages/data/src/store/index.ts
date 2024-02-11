@@ -1,11 +1,22 @@
-import { configureStore } from '@reduxjs/toolkit';
+import { combineReducers, configureStore } from '@reduxjs/toolkit';
+import { persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
 
 import counterReducer from '../features/counter/counterSlice';
 
+const persistConfig = {
+  key: 'root',
+  storage,
+};
+
+const reducer = combineReducers({
+  counter: counterReducer,
+});
+
+const persistedReducer = persistReducer(persistConfig, reducer);
+
 export const store = configureStore({
-  reducer: {
-    counter: counterReducer,
-  },
+  reducer: persistedReducer,
 });
 
 // Infer the `RootState` and `AppDispatch` types from the store itself
