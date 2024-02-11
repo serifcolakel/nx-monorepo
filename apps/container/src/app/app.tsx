@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Link, Route, Routes } from 'react-router-dom';
 import { Data, useCounterActions } from '@webpack-nx-mehrzweck/data';
+import { useGetPostQuery } from 'packages/data/src/features/queries/post';
 
 import NxWelcome from './nx-welcome';
 
@@ -13,10 +14,15 @@ export function App() {
     handleDecrement, handleIncrement, handleIncrementByAmount, counterState,
   } = useCounterActions();
 
+  const { data } = useGetPostQuery(5, {
+    refetchOnMountOrArgChange: true,
+  });
+
   return (
     <React.Suspense fallback={null}>
       <Test />
-      <Data text="123" />
+      <Data text="Hello" />
+      <h1>Post: {data?.title}</h1>
       <h1>Welcome to container! {counterState.value}</h1>
       <button onClick={() => setTest((oldTest) => oldTest + 1)}>Click me {test}</button>
       <button onClick={handleIncrement}>Increment</button>

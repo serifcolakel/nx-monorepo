@@ -4,16 +4,18 @@ import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
 import counterReducer from '../features/counter/counterSlice';
+import postApi from '../features/queries/post';
 
 const persistConfig = {
   key: 'root',
   storage,
-  whitelist: [ 'counter' ],
+  whitelist: [ 'counter', postApi.reducerPath ],
   blacklist: [],
 };
 
 const reducer = combineReducers({
   counter: counterReducer,
+  [postApi.reducerPath]: postApi.reducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, reducer);
@@ -22,7 +24,7 @@ export const store = configureStore({
   reducer: persistedReducer,
   middleware: (getDefaultMiddleware) => getDefaultMiddleware({
     serializableCheck: false,
-  }).concat(logger),
+  }).concat([ postApi.middleware, logger ]),
   devTools: process.env.NODE_ENV !== 'production',
 });
 

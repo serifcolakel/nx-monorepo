@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useGetPostsQuery } from '@webpack-nx-mehrzweck/data';
 import useCounterActions from 'packages/data/src/hooks/useCounterActions';
 
 import './app.module.css';
@@ -8,6 +9,10 @@ export default function Test() {
     handleDecrement, handleIncrement, handleIncrementByAmount, counterState,
   } = useCounterActions();
 
+  const { data = [], isLoading: isFetching } = useGetPostsQuery(undefined, {
+    pollingInterval: 50000,
+  });
+
   const [ test, setTest ] = useState(0);
   const [ isLoading, setIsLoading ] = useState(false);
   const [ todos, setTodos ] = useState<{ userId: number, id: number, title: string, completed: boolean }[]>([]);
@@ -16,9 +21,9 @@ export default function Test() {
     setIsLoading(true);
     setTest(0);
     const response = await fetch('https://jsonplaceholder.typicode.com/todos');
-    const data = await response.json() as { userId: number, id: number, title: string, completed: boolean }[];
+    const allTodos = await response.json() as { userId: number, id: number, title: string, completed: boolean }[];
 
-    setTodos(data || []);
+    setTodos(allTodos || []);
     setTimeout(() => {
       setIsLoading(false);
     }, 3000);
@@ -30,6 +35,17 @@ export default function Test() {
 
   return (
     <div>
+      {isFetching ? <h1>Loading...</h1>
+        : (
+          <div>
+            <h1>Posts</h1>
+            <ul>
+              {data.map((post) => (
+                <li key={post.id}>{post.title}</li>
+              ))}
+            </ul>
+          </div>
+        )}
       <h1>Welcome to container! {counterState.value}</h1>
       <button onClick={() => setTest((oldTest) => oldTest + 1)}>Click me {test}</button>
       <button onClick={handleIncrement}>Increment</button>
