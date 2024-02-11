@@ -7,7 +7,7 @@
     "build:container": "nx run container:build --configuration=production && cd dist/apps/container && PORT=3002 npx serve",
     "start:container": "nx run container:serve --configuration=development",
     "prepare": "husky install",
-    "lint": "eslint apps/* --ext ts,tsx --report-unused-disable-directives --max-warnings 0"
+    "lint": "eslint apps/* packages/* --ext ts,tsx --report-unused-disable-directives --max-warnings 0"
   },
   "private": true,
   "dependencies": {
