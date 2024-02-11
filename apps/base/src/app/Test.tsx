@@ -1,8 +1,13 @@
 import { useState } from 'react';
+import useCounterActions from 'packages/data/src/hooks/useCounterActions';
 
 import './app.module.css';
 
 export default function Test() {
+  const {
+    handleDecrement, handleIncrement, handleIncrementByAmount, counterState,
+  } = useCounterActions();
+
   const [ test, setTest ] = useState(0);
   const [ isLoading, setIsLoading ] = useState(false);
   const [ todos, setTodos ] = useState<{ userId: number, id: number, title: string, completed: boolean }[]>([]);
@@ -25,7 +30,11 @@ export default function Test() {
 
   return (
     <div>
-      <h1>Test From Base Module</h1>
+      <h1>Welcome to container! {counterState.value}</h1>
+      <button onClick={() => setTest((oldTest) => oldTest + 1)}>Click me {test}</button>
+      <button onClick={handleIncrement}>Increment</button>
+      <button onClick={handleDecrement}>Decrement</button>
+      <button onClick={() => handleIncrementByAmount(5)}>Increment by 5</button>
       <button onClick={() => setTest((oldTest) => oldTest - 1)}>Click me {test}</button>
       <button onClick={() => setTest((oldTest) => oldTest + 1)}>Click me {test}</button>
       <button onClick={() => getTodos()}>Get Todos</button>

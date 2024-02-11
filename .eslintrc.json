@@ -149,6 +149,8 @@
               [
                 "^@nx",
                 "^react",
+                "@webpack-nx-mehrzweck",
+                "^@reduxjs",
                 "^\\w",
                 "^@hookform",
                 "^@radix-ui",
