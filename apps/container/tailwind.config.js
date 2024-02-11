@@ -6,7 +6,7 @@ const baseConfig = require('../../tailwind.config');
 
 const relativePathToRemoteApplication = join(
   __dirname,
-  '../../base/**/*.{ts,tsx,html}',
+  'apps/base',
 );
 
 /** @type {import('tailwindcss').Config} */
