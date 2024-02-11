@@ -21,7 +21,8 @@
         ],
         "styles": ["apps/container/src/styles.css"],
         "scripts": [],
-        "webpackConfig": "apps/container/webpack.config.ts"
+        "webpackConfig": "apps/container/webpack.config.ts",
+        "postcssConfig": "apps/container/postcss.config.js"
       },
       "configurations": {
         "development": {
