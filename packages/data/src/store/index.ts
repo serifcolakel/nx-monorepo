@@ -7,6 +7,8 @@ import counterReducer from '../features/counter/counterSlice';
 const persistConfig = {
   key: 'root',
   storage,
+  whitelist: [ 'counter' ],
+  blacklist: [],
 };
 
 const reducer = combineReducers({
@@ -17,6 +19,10 @@ const persistedReducer = persistReducer(persistConfig, reducer);
 
 export const store = configureStore({
   reducer: persistedReducer,
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware({
+    serializableCheck: false,
+  }),
+  devTools: process.env.NODE_ENV !== 'production',
 });
 
 // Infer the `RootState` and `AppDispatch` types from the store itself
