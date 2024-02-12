@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Button } from '@webpack-nx-mehrzweck/ui';
 
 export default function TodoList() {
   const [ isLoading, setIsLoading ] = useState(false);
@@ -34,12 +35,12 @@ export default function TodoList() {
 
   return (
     <div className="flex flex-col w-full gap-y-4">
-      <button
+      <Button
         className="px-4 py-2 bg-white rounded-md"
         onClick={getTodos}
       >
         Get Todos
-      </button>
+      </Button>
       <div className="p-4 overflow-y-auto bg-gray-100 rounded-md max-h-96">
         <h2>Todo List</h2>
         <ul>
