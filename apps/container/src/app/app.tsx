@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Link, Route, Routes } from 'react-router-dom';
 import { Data, useCounterActions } from '@webpack-nx-mehrzweck/data';
+import { Button } from '@webpack-nx-mehrzweck/ui';
 import { useGetPostQuery } from 'packages/data/src/features/queries/post';
 
 import NxWelcome from './nx-welcome';
@@ -24,6 +25,10 @@ export function App() {
       <Data text="Hello" />
       <h1 className="px-4 bg-green-500">Post: {data?.title}</h1>
       <h1>Welcome to container! {counterState.value}</h1>
+      <Button>Button</Button>
+      <Button size="sm" variant="default">
+        Click me
+      </Button>
       <button onClick={() => setTest((oldTest) => oldTest + 1)}>Click me {test}</button>
       <button onClick={handleIncrement}>Increment</button>
       <button onClick={handleDecrement}>Decrement</button>
