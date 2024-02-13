@@ -7,7 +7,7 @@ import './app.module.css';
 export default function Test() {
   return (
     <div className="flex flex-col items-center justify-center gap-y-4">
-      <div className="p-4 bg-red-500 lg:bg-blue-500 md:bg-green-500 sm:bg-yellow-500">
+      <div className="w-full p-4 bg-red-500 lg:bg-blue-500 md:bg-green-500 sm:bg-yellow-500">
         <PostList />
       </div>
       <div className="w-full p-4 bg-red-500 lg:bg-blue-500 md:bg-green-500 sm:bg-yellow-500">

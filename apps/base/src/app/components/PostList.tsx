@@ -1,5 +1,8 @@
 import React from 'react';
 import { useGetPostsQuery } from '@webpack-nx-mehrzweck/data';
+import { Checkbox } from '@webpack-nx-mehrzweck/ui';
+
+import { DialogDemo } from './Dialog';
 
 export default function PostList() {
   const { data = [], isLoading: isFetching } = useGetPostsQuery(undefined, {
@@ -15,24 +18,22 @@ export default function PostList() {
   }
 
   return (
-    <div className="p-4 overflow-y-auto bg-gray-100 rounded-md h-96">
+    <div className="w-full p-4 overflow-y-auto bg-gray-100 rounded-md h-96">
+      <DialogDemo />
       <h1>Posts</h1>
-      <ul className="grid grid-cols-4 gap-x-4">
+      <ul className="grid w-full grid-cols-4 gap-x-4">
         {data.map((post, i) => (
-          <li className="flex items-center gap-3 border-b border-gray-300" key={post.id}>
-            <input
-              readOnly
+          <li className="flex items-center w-full gap-3 border-b border-gray-300" key={post.id}>
+            <Checkbox
               checked={i % 2 === 0}
-              className="peer"
               id={post.id.toString()}
-              type="checkbox"
             />
             <label
               className="cursor-pointer peer-checked:text-gray-500 peer-checked:line-through line-clamp-1"
               htmlFor={post.id.toString()}
               title={post.title}
             >
-              {post.title}
+              {post.title.slice(0, 20)}
             </label>
             <span className="ml-auto text-sm text-gray-500 peer-checked:text-gray-500 peer-checked:line-through">
               {post.userId}

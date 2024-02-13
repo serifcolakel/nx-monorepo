@@ -4,6 +4,7 @@ import { Data, useCounterActions } from '@webpack-nx-mehrzweck/data';
 import { Button } from '@webpack-nx-mehrzweck/ui';
 import { useGetPostQuery } from 'packages/data/src/features/queries/post';
 
+import { DialogDemo } from './Dialog';
 import NxWelcome from './nx-welcome';
 
 const Test = React.lazy(() => import('base/Test'));
@@ -21,6 +22,7 @@ export function App() {
 
   return (
     <React.Suspense fallback={null}>
+      <DialogDemo />
       <Test />
       <Data text="Hello" />
       <h1 className="px-4 bg-green-500">Post: {data?.title}</h1>
