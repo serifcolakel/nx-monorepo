@@ -1,9 +1,9 @@
 import { StrictMode } from 'react';
 import * as ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
-import Providers from 'packages/data/src/providers';
+import TanStackQueryProvider from 'packages/data/src/providers/TanStackQueryProvider';
 
-import App from './app/app';
+import Test from './app/Test';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement,
@@ -11,10 +11,10 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <StrictMode>
-    <Providers>
+    <TanStackQueryProvider>
       <BrowserRouter>
-        <App />
+        <Test />
       </BrowserRouter>
-    </Providers>
+    </TanStackQueryProvider>
   </StrictMode>,
 );
